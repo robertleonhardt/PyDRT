@@ -16,7 +16,7 @@ from PyDRT import DebyeDRT
 
 # Setup arbitrary model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
-impedance_model_Ohm = lambda omega: 1 + 2/(1 + 1j * 2 * np.pi * omega * 0.1) ** 0.99 + 4/(1 + 1j * 2 * np.pi * omega * 1) * 0.99
+impedance_model_Ohm = lambda omega: 1 + 2/(1 + (1j * 2 * np.pi * omega * 0.1) ** 0.99) + 4/(1 + (1j * 2 * np.pi * omega * 1) * 0.99)
 impedance_model_Ohm = impedance_model_Ohm(frequency_model_Hz)
 
 # Determine DRT
@@ -43,7 +43,7 @@ from PyDRT import ColeColeDRT, DRTPeak
 
 # Setup arbitrary model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
-impedance_model_Ohm = lambda omega: 1 + 2/(1 + 1j * 2 * np.pi * omega * 0.1) ** 0.9 + 4/(1 + 1j * 2 * np.pi * omega * 1) * 0.9
+impedance_model_Ohm = lambda omega: 1 + 2/(1 + (1j * 2 * np.pi * omega * 0.1) ** 0.9) + 4/(1 + (1j * 2 * np.pi * omega * 1) * 0.9)
 impedance_model_Ohm = impedance_model_Ohm(frequency_model_Hz)
 
 # Determine DRT
@@ -75,3 +75,43 @@ for peak in drt.get_separated_peak_list():
 ```
 
 The example scripts provided contain more details on the application of the DRT.
+
+## Determination of optimized shape and regularization parameters
+The shape parameters of the non-Debye bases are typically defined by experience.
+This is also true for the Tikhonov regularization parameter (epsilon or lambda).
+It is, however, possible to optimize these parameters automatically.
+
+For the regularization parameters, the code from the basic usage example is adapted accordingly to:
+```python
+import numpy as np
+from PyDRT import DebyeDRT
+
+# Setup arbitrary model
+frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
+impedance_model_Ohm = lambda omega: 1 + 2/(1 + (1j * 2 * np.pi * omega * 0.1) ** 0.99) + 4/(1 + (1j * 2 * np.pi * omega * 1) * 0.99)
+impedance_model_Ohm = impedance_model_Ohm(frequency_model_Hz)
+
+# Determine DRT and optimize the regularization parameter
+# Note that an object of the DebyeDRT class is passed to the static method "optimize_regularization_parameter"
+drt = DebyeDRT.optimize_regularization_parameters(DebyeDRT(frequency_model_Hz, impedance_model_Ohm))
+```
+
+For shape parameters, the following code could be used:
+```python
+import numpy as np
+from PyDRT import HavriliakNegamiDRT
+
+# Setup arbitrary model
+frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
+impedance_model_Ohm = lambda omega: 1 + 2/(1 + (1j * 2 * np.pi * omega * 0.1) ** 0.83) ** 0.6 + 4/(1 + (1j * 2 * np.pi * omega * 1) * 0.83) ** 0.6
+impedance_model_Ohm = impedance_model_Ohm(frequency_model_Hz)
+
+# Determine DRT and optimize the shape parameter
+drt = HavriliakNegamiDRT.optimize_shape_parameters(HavriliakNegamiDRT(model.frequency_Hz, model.z_Ohm, tau_max_s = 1e1))
+```
+
+Since the Havriliak-Negami relaxation has two shape parameters (alpha and beta), the optimization takes some time (usually 30-45 seconds).
+For the other bases, this step is much faster.
+
+Also note that regularization is typically not required when using dispersed bases (all classes except `DebyeDRT`).
+But id is advised to consider validating this information for a specific use case.

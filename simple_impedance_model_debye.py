@@ -4,7 +4,7 @@ from PyDRT import DebyeDRT
 
 # Setup model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
-impedance_model_Ohm = lambda omega: 1 + 2/(1 + 1j * 2 * np.pi * omega * 0.1) ** 0.99 + 4/(1 + 1j * 2 * np.pi * omega * 1) * 0.99
+impedance_model_Ohm = lambda omega: 1 + 2/(1 + (1j * 2 * np.pi * omega * 0.1) ** 0.99) + 4/(1 + (1j * 2 * np.pi * omega * 1) * 0.99)
 impedance_model_Ohm = impedance_model_Ohm(frequency_model_Hz)
 
 # Setup DRT
