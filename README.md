@@ -5,7 +5,7 @@ The present code is published as part of the following work:
 
 If this code helps you with your research, please consider citing the reference above - this would be very helpful. :)
 
-In case you want a more convenient DRT experience with a more user-friencly GUI, check out Polarographica:
+In case you want a more convenient DRT experience with a more user-friendly GUI, check out Polarographica:
 https://github.com/Polarographica/Polarographica_program
 
 ## Basic usage
@@ -32,6 +32,46 @@ Four different types of bases are implemented in the given repository, usable as
 * `DebyeDRT` is the basic DRT assuming ideal RC elements
 * `GaussianDRT` approximates the processes to be normally distributed. The shape of the basis functions is defined by the full width at half maximum (FWHM), more details can be found here: https://en.wikipedia.org/wiki/Gaussian_function
 * `ColeColeDRT` can natively resemble depressed ZARC-elements (CPE in parallel to a resistor, more information: https://en.wikipedia.org/wiki/Cole-Cole_equation). The shape is defined by alpha.
-* `ColeColeDRT` incorporates asymmetry into the ZARC element (see https://en.wikipedia.org/wiki/Havriliak-Negami_relaxation). In addition to alpha, a second parameter (beta) in implemented to account for the asymmetry.
+* `HavriliakNegamiDRT` incorporates asymmetry into the ZARC element (see https://en.wikipedia.org/wiki/Havriliak-Negami_relaxation). In addition to alpha, a second parameter (beta) in implemented to account for the asymmetry.
 
 More details on the used bases can be found in the reference at the top.
+
+The code from the basic usage example can be adapted to employ other bases as:
+```python
+import numpy as np
+from PyDRT import ColeColeDRT, DRTPeak
+
+# Setup arbitrary model
+frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
+impedance_model_Ohm = lambda omega: 1 + 2/(1 + 1j * 2 * np.pi * omega * 0.1) ** 0.9 + 4/(1 + 1j * 2 * np.pi * omega * 1) * 0.9
+impedance_model_Ohm = impedance_model_Ohm(frequency_model_Hz)
+
+# Determine DRT
+drt = ColeColeDRT(frequency_model_Hz, impedance_model_Ohm, alpha = 0.9)
+```
+
+The DRT object can the be used to further analyze the results. The following attributes might be useful:
+```python
+# ...
+
+# Vector containing the time constants
+print(drt.tau_s) 
+
+# Vector containing the DRT and the DRT time the polarization resistance
+print(drt.gamma)
+print(drt.R_pol_Ohm * drt.gamma_hat_Ohm) # or in short, drt.gamma_hat_Ohm 
+
+# The reconstructed, complex DRT
+print(drt.z_back_Ohm)
+```
+
+Furthermore, all bases (except the Debye basis) allow for convenient peak separation, which can be used as follows:
+```python
+# ...
+
+# Iterate through peaks
+for peak in drt.get_separated_peak_list():
+    print(peak.tau_s, peak.R_Ohm, peak.C_F)
+```
+
+The example scripts provided contain more details on the application of the DRT.
