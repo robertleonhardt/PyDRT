@@ -118,4 +118,6 @@ But id is advised to consider validating this information for a specific use cas
 
 ## Sources
 > Wan, T. H., et al. (2015). "Influence of the Discretization Methods on the Distribution of Relaxation Times Deconvolution: Implementing Radial Basis Functions with DRTtools." Electrochimica Acta 184: 483-499.
+
+and 
 > T. Tichter. https://github.com/Polarographica/Polarographica_program
