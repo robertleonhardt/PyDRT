@@ -3,6 +3,10 @@ PyDRT is a lightweight Python implementation of the regularization-regression DR
 The present code is published as part of the following work:
 > Leonhardt, et al. (2024). "Reconstructing the distribution of relaxation times with analytical basis functions" Journal of Y, Submitted, DOI: Y
 
+DRT can help you to deconvolute your impedance spectra, providing insights into the underlying processes of your electrochemical systems.
+An example is illstrated below.
+![DRT of a simple impedance model](https://picr.eu/images/2024/10/19/deN30.png)
+
 If this code helps you with your research, please consider citing the reference above - this would be very helpful. :)
 
 In case you want a more convenient DRT experience with a more user-friendly GUI, check out Polarographica,
@@ -110,7 +114,7 @@ impedance_model_Ohm = lambda omega: 1 + 2/(1 + (1j * 2 * np.pi * omega * 0.1) **
 impedance_model_Ohm = impedance_model_Ohm(frequency_model_Hz)
 
 # Determine DRT and optimize the shape parameter
-drt = HavriliakNegamiDRT.optimize_shape_parameters(HavriliakNegamiDRT(model.frequency_Hz, model.z_Ohm, tau_max_s = 1e1))
+drt = HavriliakNegamiDRT.optimize_shape_parameters(HavriliakNegamiDRT(frequency_model_Hz, impedance_model_Ohm, tau_max_s = 1e1))
 ```
 
 Since the Havriliak-Negami relaxation has two shape parameters (alpha and beta), the optimization takes some time (usually 30-45 seconds).
@@ -122,5 +126,5 @@ But id is advised to consider validating this information for a specific use cas
 ## Sources and acknowlegdements
 > Wan, T. H., et al. (2015). "Influence of the Discretization Methods on the Distribution of Relaxation Times Deconvolution: Implementing Radial Basis Functions with DRTtools." Electrochimica Acta 184: 483-499.
 
-and 
+and, of course, 
 > T. Tichter. https://github.com/Polarographica/Polarographica_program

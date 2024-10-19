@@ -62,7 +62,7 @@ class ColeColeDRT(DRT):
         return np.log10(residual_cost + element_number_cost)
     
     @staticmethod 
-    def optimize_shape_parameters(drt: ColeColeDRT, alpha_min: float = 0.0, alpha_max: float = 0.9999) -> ColeColeDRT:
+    def optimize_shape_parameters(drt: ColeColeDRT, alpha_min: float = 1e-3, alpha_max: float = 0.9999) -> ColeColeDRT:
         # Use the rather slow global optimization
         optim = direct(ColeColeDRT.__parameter_optimization_cost, args = (drt,), bounds = [(alpha_min, alpha_max)], locally_biased = False)
         

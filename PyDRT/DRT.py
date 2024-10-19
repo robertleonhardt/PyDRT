@@ -189,10 +189,15 @@ class DRT:
         # Calculate gamma, R_pol, etc.
         gamma_hat_Ohm:  npt.ArrayLike = np.dot(self._get_basis_matrix(), w_hat_vector)
         R_pol_Ohm:      float = np.trapz(gamma_hat_Ohm, self.ln_tau_tau0)
+        
+        # Just to avoid shenanigans
+        if R_pol_Ohm <= 0.0:
+            R_pol_Ohm = 1e-9
+        
         gamma_array:    npt.ArrayLike = gamma_hat_Ohm / R_pol_Ohm
         
         # Store data and back calculations etc.
-        self.__weight_vector    = w_hat_vector / np.sum(w_hat_vector)
+        self.__weight_vector    = w_hat_vector / R_pol_Ohm
         self.__gamma_hat_Ohm    = gamma_hat_Ohm
         self.__gamma_array      = gamma_array
         self.__R_pol_Ohm        = R_pol_Ohm

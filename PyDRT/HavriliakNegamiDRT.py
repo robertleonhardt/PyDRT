@@ -74,7 +74,7 @@ class HavriliakNegamiDRT(DRT):
         return np.log10(residual_cost + element_number_cost)
     
     @staticmethod 
-    def optimize_shape_parameters(drt: HavriliakNegamiDRT, alpha_min: float = 0.5, alpha_max: float = 0.999, beta_min: float = 0, beta_max: float = 1) -> HavriliakNegamiDRT:
+    def optimize_shape_parameters(drt: HavriliakNegamiDRT, alpha_min: float = 0.5, alpha_max: float = 0.999, beta_min: float = 1e-3, beta_max: float = 1) -> HavriliakNegamiDRT:
         # Use the rather slow global optimization
         optim = direct(HavriliakNegamiDRT.__parameter_optimization_cost, args = (drt,), bounds = [(alpha_min, alpha_max), (beta_min, beta_max)], locally_biased = False)
         
