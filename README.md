@@ -11,6 +11,7 @@ https://github.com/Polarographica/Polarographica_program
 ## Basic usage
 In the simplest case, the DRT can be set up as follows.
 ```python
+import numpy as np
 from PyDRT import DebyeDRT
 
 # Setup arbitrary model
@@ -24,3 +25,13 @@ drt = DebyeDRT(frequency_model_Hz, impedance_model_Ohm, epsilon = 0.001)
 
 The DRT primarily takes two inputs, a frequency vector and a complex-valued impedance vector of the same length.
 The latter can be constructed in python by `impedance_model_Ohm = real_part + 1j * imag_part`.
+
+## Employing basis functions
+The present DRT implementation approximates the DRT of a given measured (or synthetic) as a weighted sum (i.e., linear combination) of known basis functions.
+Four different types of bases are implemented in the given repository, usable as a class.
+* `DebyeDRT` is the basic DRT assuming ideal RC elements
+* `GaussianDRT` approximates the processes to be normally distributed. The shape of the basis functions is defined by the full width at half maximum (FWHM), more details can be found here: https://en.wikipedia.org/wiki/Gaussian_function
+* `ColeColeDRT` can natively resemble depressed ZARC-elements (CPE in parallel to a resistor, more information: https://en.wikipedia.org/wiki/Cole-Cole_equation). The shape is defined by alpha.
+* `ColeColeDRT` incorporates asymmetry into the ZARC element (see https://en.wikipedia.org/wiki/Havriliak-Negami_relaxation). In addition to alpha, a second parameter (beta) in implemented to account for the asymmetry.
+
+More details on the used bases can be found in the reference at the top.
