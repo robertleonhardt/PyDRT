@@ -8,7 +8,7 @@ from scipy.signal import find_peaks
 from .DRTPeak import DRTPeak
 
 class DRT:
-    """ SHORT TEST
+    """ 
     Main DRT class for determining DRT functions from measured impedance spectra by discretization and approximation using basis functions.
     The present code is published as part of the following work:
         Leonhardt, et al. (2024). "Reconstructing the distribution of relaxation times with analytical basis functions" Journal of Y, Submitted, DOI: Y
