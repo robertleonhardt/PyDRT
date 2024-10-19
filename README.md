@@ -115,3 +115,7 @@ For the other bases, this step is much faster.
 
 Also note that regularization is typically not required when using dispersed bases (all classes except `DebyeDRT`).
 But id is advised to consider validating this information for a specific use case.
+
+## Sources
+> Wan, T. H., et al. (2015). "Influence of the Discretization Methods on the Distribution of Relaxation Times Deconvolution: Implementing Radial Basis Functions with DRTtools." Electrochimica Acta 184: 483-499.
+> T. Tichter. https://github.com/Polarographica/Polarographica_program
