@@ -4,7 +4,7 @@ The present code is published as part of the following work:
 > Leonhardt, et al. (2024). "Reconstructing the distribution of relaxation times with analytical basis functions" Journal of Y, Submitted, DOI: Y
 
 DRT can help you to deconvolute your impedance spectra, providing insights into the underlying processes of your electrochemical systems.
-An example is illstrated below.
+An example is illustrated below.
 ![DRT of a simple impedance model](https://picr.eu/images/2024/10/19/deN30.png)
 
 If this code helps you with your research, please consider citing the reference above - this would be very helpful. :)
