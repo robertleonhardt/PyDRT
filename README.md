@@ -8,10 +8,19 @@ If this code helps you with your research, please consider citing the reference 
 In case you want a more convenient DRT experience with a more user-friencly GUI, check out Polarographica:
 https://github.com/Polarographica/Polarographica_program
 
-## Usage
+## Basic usage
 In the simplest case, the DRT can be set up as follows.
 ```python
 from PyDRT import DebyeDRT
 
-drt = DebyeDRT(frequency_data_Hz, impedance_data_Ohm, epsilon = 0.001)
+# Setup arbitrary model
+frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
+impedance_model_Ohm = lambda omega: 1 + 2/(1 + 1j * 2 * np.pi * omega * 0.1) ** 0.99 + 4/(1 + 1j * 2 * np.pi * omega * 1) * 0.99
+impedance_model_Ohm = impedance_model_Ohm(frequency_model_Hz)
+
+# Determine DRT
+drt = DebyeDRT(frequency_model_Hz, impedance_model_Ohm, epsilon = 0.001)
 ```
+
+The DRT primarily takes two inputs, a frequency vector and a complex-valued impedance vector of the same length.
+The latter can be constructed in python by `impedance_model_Ohm = real_part + 1j * imag_part`.
