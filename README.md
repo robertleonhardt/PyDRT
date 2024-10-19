@@ -5,8 +5,11 @@ The present code is published as part of the following work:
 
 If this code helps you with your research, please consider citing the reference above - this would be very helpful. :)
 
-In case you want a more convenient DRT experience with a more user-friendly GUI, check out Polarographica:
-https://github.com/Polarographica/Polarographica_program
+In case you want a more convenient DRT experience with a more user-friendly GUI, check out Polarographica,
+https://github.com/Polarographica/Polarographica_program.
+
+To test the present code on synthetic impedance models, also check out
+ https://github.com/thereisnorob/PyImpedanceModel.
 
 ## Basic usage
 In the simplest case, the DRT can be set up as follows.
@@ -116,7 +119,7 @@ For the other bases, this step is much faster.
 Also note that regularization is typically not required when using dispersed bases (all classes except `DebyeDRT`).
 But id is advised to consider validating this information for a specific use case.
 
-## Sources
+## Sources and acknowlegdements
 > Wan, T. H., et al. (2015). "Influence of the Discretization Methods on the Distribution of Relaxation Times Deconvolution: Implementing Radial Basis Functions with DRTtools." Electrochimica Acta 184: 483-499.
 
 and 
