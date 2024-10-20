@@ -64,9 +64,9 @@ The DRT object can the be used to further analyze the results. The following att
 # Vector containing the time constants
 print(drt.tau_s) 
 
-# Vector containing the DRT and the DRT time the polarization resistance
+# Vector containing the DRT and the DRT times the polarization resistance
 print(drt.gamma)
-print(drt.R_pol_Ohm * drt.gamma_hat_Ohm) # or in short, drt.gamma_hat_Ohm 
+print(drt.R_pol_Ohm * drt.gamma) # or in short, drt.gamma_hat_Ohm 
 
 # The reconstructed, complex DRT
 print(drt.z_back_Ohm)
