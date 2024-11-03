@@ -13,7 +13,7 @@ In case you want a more convenient DRT experience with a more user-friendly GUI,
 https://github.com/Polarographica/Polarographica_program.
 
 To test the present code on synthetic impedance models, also check out
- https://github.com/thereisnorob/PyImpedanceModel.
+ https://github.com/robertleonhardt/PyImpedanceModel.
 
 ## Basic usage
 In the simplest case, the DRT can be set up as follows.
