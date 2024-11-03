@@ -206,7 +206,7 @@ class DRT:
         self.__impedance_back_Ohm: npt.ArrayLike = self.R_offset_Ohm + np.dot(kernel_matrix.real, w_hat_vector) + 1j * np.dot(kernel_matrix.imag, w_hat_vector)
         
         # Store additional information (e.g., g_hat, which contains the psotions of the peaks)
-        self.__w_hat_vector      = w_hat_vector
+        self.__w_hat_vector     = w_hat_vector
         self.__norm             = norm
         
         return self
