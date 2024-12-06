@@ -7,10 +7,10 @@ DRT can help you to deconvolute your impedance spectra, providing insights into 
 An example is illustrated below.
 ![DRT of a simple impedance model](https://picr.eu/images/2024/10/19/deN30.png)
 
-If this code helps you with your research, please consider citing the reference above - this would be very helpful. :)
+If this DRT implementation helps you with your research, please consider citing the reference above - this would be very helpful. :)
 
 In case you want a more convenient DRT experience with a more user-friendly GUI, check out Polarographica,
-https://github.com/Polarographica/Polarographica_program.
+https://github.com/Polarographica/Polarographica_program. Polarographica was also first to implement the Cole-Cole and Havriliak-Negami bases to the DRT algorithm.
 
 To test the present code on synthetic impedance models, also check out
  https://github.com/robertleonhardt/PyImpedanceModel.
@@ -126,5 +126,5 @@ But id is advised to consider validating this information for a specific use cas
 ## Sources and acknowlegdements
 > Wan, T. H., et al. (2015). "Influence of the Discretization Methods on the Distribution of Relaxation Times Deconvolution: Implementing Radial Basis Functions with DRTtools." Electrochimica Acta 184: 483-499.
 
-and, of course, 
+and, as the main source for the implementation of the Cole-Cole and Havriliak-Negami bases, 
 > T. Tichter. https://github.com/Polarographica/Polarographica_program
