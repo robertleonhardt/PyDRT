@@ -11,11 +11,11 @@ class DRT:
     """ 
     Main DRT class for determining DRT functions from measured impedance spectra by discretization and approximation using basis functions.
     The present code is published as part of the following work:
-        Leonhardt, et al. (2024). "Reconstructing the distribution of relaxation times with analytical basis functions" Journal of Y, Submitted, DOI: Y
+        Leonhardt, et al. (2024). "Reconstructing the distribution of relaxation times with analytical basis functions" Journal of Power Sources, Submitted, DOI: Y
     
     If this code helps you with your research, please consider citing the reference above - this would be very helpful. :)
     
-    In case you want a more convenient DRT experience with a more user-friencly GUI, check out Polarographica: 
+    In case you want a more convenient DRT experience with a more user-friendy GUI, check out Polarographica: 
     https://github.com/Polarographica/Polarographica_program
     
     Notational remarks:
