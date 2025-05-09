@@ -374,7 +374,7 @@ class DRT:
             tau_s = self.tau_s[index]
             
             # Filter for valid taus
-            if ~(min_tau_s < tau_s < max_tau_s):
+            if not (min_tau_s < tau_s < max_tau_s):
                 continue
             
             # Populate sparse weight vector
@@ -385,7 +385,7 @@ class DRT:
             
             # Calculate R and C
             R_Ohm = np.trapz(gamma_peak_Ohm, self.ln_tau_tau0)
-            C_F   = tau_s / R_Ohm
+            C_F   = self._get_capacitance(tau_s, R_Ohm)
             
             # Filter for valid resistances (below 0.1 mOhm is hardly measureable for common batteries)
             if R_Ohm < 1e-4:
@@ -403,6 +403,21 @@ class DRT:
             peak_list.sort(key = lambda peak: peak.tau_s, reverse = 0)
             
         return peak_list
+    
+    def _get_capacitance(self, tau_s: float, R_Ohm: float) -> float:
+        """
+        Method to determine the capacitance from the time constant and the resistance
+        This is made a separate function as for different bases, things are more complicated than tau = R*C.
+        This function might be overwritten in the inherting classes.
+        
+        Args:
+            tau_s (float): Time constant
+            R_Ohm (float): Resistance
+        
+        Returns:
+            float: capacitance
+        """
+        return tau_s / R_Ohm
     
     @staticmethod 
     def optimize_regularization_parameters(drt: DRT, epsilon_min: float = 1e-8, epsilon_max: float = 1e3, relative_residual_threshold: float = 0.01, tol = 1e-6) -> DRT:

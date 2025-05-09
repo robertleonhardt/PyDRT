@@ -42,6 +42,20 @@ class ColeColeDRT(DRT):
         # step would not cause any harm, but we're doing this anyway. :)
         return basis_matrix.T
     
+    def _get_capacitance(self, tau_s: float, R_Ohm: float) -> float:
+        """
+        Method to determine the capacitance from the time constant and the resistance
+        NOTE: tau ** alpha = R * Q, hence Q (thats what we're using) = tau ** alpha / R
+        
+        Args:
+            tau_s (float): Time constant
+            R_Ohm (float): Resistance
+        
+        Returns:
+            float: capacitance
+        """
+        return tau_s ** self.alpha / R_Ohm
+    
     @staticmethod
     def get_analytical_solution(tau_s: npt.ArrayLike, tau_c: float, alpha: float) -> npt.ArrayLike:
         # Return calculated vector
