@@ -408,6 +408,7 @@ class DRT:
         """
         Method to determine the capacitance from the time constant and the resistance
         This is made a separate function as for different bases, things are more complicated than tau = R*C.
+        It should thus be noted, that even though the method's name implies a capacitance, we might get something more awkward (i.e., Q) that might be har to interpret.
         This function might be overwritten in the inherting classes.
         
         Args:
