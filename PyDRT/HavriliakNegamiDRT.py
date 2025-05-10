@@ -53,7 +53,7 @@ class HavriliakNegamiDRT(DRT):
     def _get_capacitance(self, tau_s: float, R_Ohm: float) -> float:
         """
         Method to determine the capacitance from the time constant and the resistance
-        NOTE: Needs to be updated von Havriliak-Negami
+        NOTE: For HN (i.e., (1 + (j w R Q) ** alpha) ** beta), tau ** (alpha * beta) = R * (Q ** beta); from that follows that Q = (tau ** (alpha * beta) / R) ** (1 / beta) (hopefully)
         
         Args:
             tau_s (float): Time constant
@@ -62,7 +62,7 @@ class HavriliakNegamiDRT(DRT):
         Returns:
             float: capacitance
         """
-        return tau_s ** self.alpha / R_Ohm
+        return (tau_s ** (self.alpha * self.beta) / R_Ohm) ** (1 / self.beta) 
     
     @staticmethod
     def get_analytical_solution(tau_s: npt.ArrayLike, tau_c: float, alpha: float, beta: float) -> npt.ArrayLike:
