@@ -537,8 +537,8 @@ class DRT:
     def resnorm_Ohm(self) -> float:
         # The same as the second return value of the nnls method
         # NOTE: Small values are better
-        # return np.linalg.norm(self.z_diff_stacked_Ohm)
-        return self.resnorm_nnls_Ohm
+        return np.linalg.norm(self.z_diff_stacked_Ohm)
+        # return self.resnorm_nnls_Ohm
     
     @property 
     def relative_resnorm(self) -> float:
