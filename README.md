@@ -23,7 +23,7 @@ python -m pip install PyDRT
 you can import it and us it as 
 ```python
 import numpy as np
-from PyDRT import DebyeDRT
+from pydrt import DebyeDRT
 
 # Setup arbitrary model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
@@ -95,7 +95,7 @@ It is, however, possible to optimize these parameters automatically.
 For the regularization parameters, the code from the basic usage example is adapted accordingly to:
 ```python
 import numpy as np
-from PyDRT import DebyeDRT
+from pydrt import DebyeDRT
 
 # Setup arbitrary model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
@@ -110,7 +110,7 @@ drt = DebyeDRT.optimize_regularization_parameters(DebyeDRT(frequency_model_Hz, i
 For shape parameters, the following code could be used:
 ```python
 import numpy as np
-from PyDRT import HavriliakNegamiDRT
+from pydrt import HavriliakNegamiDRT
 
 # Setup arbitrary model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
