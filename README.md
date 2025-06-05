@@ -9,8 +9,7 @@ An example is illustrated below.
 
 If this DRT implementation helps you with your research, please consider citing the reference above - this would be very helpful. :)
 
-In case you want a more convenient DRT experience with a more user-friendly GUI, check out Polarographica,
-https://github.com/Polarographica/Polarographica_program. Polarographica was also first to implement the Cole-Cole and Havriliak-Negami bases to the DRT algorithm.
+In case you want a more convenient DRT experience with a more user-friendly GUI, check out Polarographica (https://github.com/Polarographica/Polarographica_program), which was first to implement the Cole-Cole and Havriliak-Negami bases to the DRT algorithm.
 
 To test the present code on synthetic impedance models, also check out
  https://github.com/robertleonhardt/PyImpedanceModel.
