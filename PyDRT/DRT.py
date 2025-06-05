@@ -344,14 +344,14 @@ class DRT:
     def _get_basis_matrix(self) -> npt.ArrayLike:
         raise NotImplementedError()
     
-    def get_separated_peak_list(self, max_peak_number: int = None, min_tau_s: float = 1e-12, max_tau_s: float = 1e12, sort_by_tau: bool = True) -> list[DRTPeak]:
+    def get_separated_peak_list(self, max_peak_number: int = None, tau_min_s: float = 1e-12, tau_max_s: float = 1e12, sort_by_tau: bool = True) -> list[DRTPeak]:
         """
         Method to get peaks from gamma (for further analysis)
         
         Args:
             max_peak_number (int, optional): Maximum number of maxima that shall be considered; only makes sense, if sorting is enabled. Defaults to None.
-            min_tau_s (float, optional): Minimum tau that shall be considered. Defaults to 1e-12
-            max_tau_s (float, optional): Maximum tau that shall be considered. Defaults to 1e12.
+            tau_min_s (float, optional): Minimum tau that shall be considered. Defaults to 1e-12
+            tau_max_s (float, optional): Maximum tau that shall be considered. Defaults to 1e12.
             sort_by_tau (bool, optional): If True, list is sorted by tau. Defaults to True
         
         Returns:
@@ -374,7 +374,7 @@ class DRT:
             tau_s = self.tau_s[index]
             
             # Filter for valid taus
-            if not (min_tau_s < tau_s < max_tau_s):
+            if not (tau_min_s < tau_s < tau_max_s):
                 continue
             
             # Populate sparse weight vector
