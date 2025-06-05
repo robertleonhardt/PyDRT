@@ -50,7 +50,7 @@ More details on the used bases can be found in the reference at the top.
 The code from the basic usage example can be adapted to employ other bases as:
 ```python
 import numpy as np
-from PyDRT import ColeColeDRT, DRTPeak
+from pydrt import ColeColeDRT, DRTPeak
 
 # Setup arbitrary model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
