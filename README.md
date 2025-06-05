@@ -15,8 +15,12 @@ https://github.com/Polarographica/Polarographica_program. Polarographica was als
 To test the present code on synthetic impedance models, also check out
  https://github.com/robertleonhardt/PyImpedanceModel.
 
-## Basic usage
-In the simplest case, the DRT can be set up as follows.
+## Usage
+After instally PyDRT using
+```
+python -m pip install PyDRT
+```
+you can import it and us it as 
 ```python
 import numpy as np
 from PyDRT import DebyeDRT
