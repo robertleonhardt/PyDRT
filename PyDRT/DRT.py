@@ -2,9 +2,6 @@ from __future__ import annotations
 import scipy
 import numpy as np
 import numpy.typing as npt
-import warnings
-from scipy.optimize import direct
-from scipy.signal import find_peaks
 from .DRTPeak import DRTPeak
 
 class DRT:

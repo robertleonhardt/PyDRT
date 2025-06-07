@@ -1,8 +1,7 @@
 from __future__ import annotations
 import numpy as np
 import numpy.typing as npt
-import pandas as pd
-from scipy.optimize import minimize, direct, least_squares
+from scipy.optimize import direct
 from .DRT import DRT
 
 class HavriliakNegamiDRT(DRT):
