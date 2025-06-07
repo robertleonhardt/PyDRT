@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from PyDRT import DebyeDRT
+from pydrt import DebyeDRT
 
 # Setup model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)

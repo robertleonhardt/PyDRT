@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from PyDRT import ColeColeDRT, DRTPeak
+from pydrt import ColeColeDRT, DRTPeak
 
 # Setup model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
