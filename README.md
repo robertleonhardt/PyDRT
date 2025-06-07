@@ -1,7 +1,7 @@
 # PyDRT
 PyDRT is a lightweight Python implementation of the regularization-regression DRT with basis functions.
 The present code is published as part of the following work:
-> Leonhardt, et al. (2024). "Reconstructing the distribution of relaxation times with analytical basis functions" Journal of Power Sources, Submitted, DOI: t.b.d.
+> Leonhardt, et al. (2024). "Reconstructing the distribution of relaxation times with analytical basis functions" Journal of Power Sources 652, DOI: 10.1016/j.jpowsour.2025.237403
 
 DRT can help you to deconvolute your impedance spectra, providing insights into the underlying processes of your electrochemical systems.
 An example is illustrated below.
@@ -9,17 +9,20 @@ An example is illustrated below.
 
 If this DRT implementation helps you with your research, please consider citing the reference above - this would be very helpful. :)
 
-In case you want a more convenient DRT experience with a more user-friendly GUI, check out Polarographica,
-https://github.com/Polarographica/Polarographica_program. Polarographica was also first to implement the Cole-Cole and Havriliak-Negami bases to the DRT algorithm.
+In case you want a more convenient DRT experience with a more user-friendly GUI, check out Polarographica (https://github.com/Polarographica/Polarographica_program), which was first to implement the Cole-Cole and Havriliak-Negami bases to the DRT algorithm.
 
 To test the present code on synthetic impedance models, also check out
  https://github.com/robertleonhardt/PyImpedanceModel.
 
-## Basic usage
-In the simplest case, the DRT can be set up as follows.
+## Usage
+After instally PyDRT using
+```
+python -m pip install PyDRT
+```
+you can import it and us it as 
 ```python
 import numpy as np
-from PyDRT import DebyeDRT
+from pydrt import DebyeDRT
 
 # Setup arbitrary model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
@@ -46,7 +49,7 @@ More details on the used bases can be found in the reference at the top.
 The code from the basic usage example can be adapted to employ other bases as:
 ```python
 import numpy as np
-from PyDRT import ColeColeDRT, DRTPeak
+from pydrt import ColeColeDRT, DRTPeak
 
 # Setup arbitrary model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
@@ -91,7 +94,7 @@ It is, however, possible to optimize these parameters automatically.
 For the regularization parameters, the code from the basic usage example is adapted accordingly to:
 ```python
 import numpy as np
-from PyDRT import DebyeDRT
+from pydrt import DebyeDRT
 
 # Setup arbitrary model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
@@ -106,7 +109,7 @@ drt = DebyeDRT.optimize_regularization_parameters(DebyeDRT(frequency_model_Hz, i
 For shape parameters, the following code could be used:
 ```python
 import numpy as np
-from PyDRT import HavriliakNegamiDRT
+from pydrt import HavriliakNegamiDRT
 
 # Setup arbitrary model
 frequency_model_Hz  = np.geomspace(1000, 0.001, 70)
