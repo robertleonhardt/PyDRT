@@ -124,7 +124,7 @@ Since the Havriliak-Negami relaxation has two shape parameters (alpha and beta),
 For the other bases, this step is much faster.
 
 Also note that regularization is typically not required when using dispersed bases (all classes except `DebyeDRT`).
-But id is advised to consider validating this information for a specific use case.
+But it is advised to consider validating this information for a specific use case.
 
 ## Sources and acknowlegdements
 > Wan, T. H., et al. (2015). "Influence of the Discretization Methods on the Distribution of Relaxation Times Deconvolution: Implementing Radial Basis Functions with DRTtools." Electrochimica Acta 184: 483-499.
