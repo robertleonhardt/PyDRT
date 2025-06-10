@@ -19,7 +19,7 @@ After instally PyDRT using
 ```
 python -m pip install PyDRT
 ```
-you can import it and us it as 
+you can import it and use it as 
 ```python
 import numpy as np
 from pydrt import DebyeDRT
