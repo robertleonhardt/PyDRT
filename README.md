@@ -15,7 +15,7 @@ To test the present code on synthetic impedance models, also check out
  https://github.com/robertleonhardt/PyImpedanceModel.
 
 ## Usage
-After instally PyDRT using
+After installing PyDRT using
 ```
 python -m pip install PyDRT
 ```
