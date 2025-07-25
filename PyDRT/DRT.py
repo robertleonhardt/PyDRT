@@ -362,6 +362,9 @@ class DRT:
         # Setup lists with gamma traces
         peak_list = []
         
+        # Initialize offset
+        R_offset_Ohm = self.R_offset_Ohm
+        
         # Iterate through gamma indices
         for index in np.where(weight_vector > 0)[0]:
             # Setup a sparse weight vector which we'll populate only for the tau that we're interested in
@@ -385,10 +388,12 @@ class DRT:
             C_F   = self._get_capacitance(tau_s, R_Ohm)
             
             # Filter for valid resistances (below 0.1 mOhm is hardly measureable for common batteries)
-            if R_Ohm < 1e-4:
+            if R_Ohm < 1e-5:
                 continue
             
-            peak_list.append(DRTPeak(tau_s, R_Ohm, C_F, weight_vector[index], gamma_peak_Ohm))
+            peak_list.append(DRTPeak(tau_s, R_Ohm, C_F, weight_vector[index], gamma_peak_Ohm, R_offset_Ohm))
+            
+            R_offset_Ohm += R_Ohm
         
         # Sort list by R and keep highest n peaks
         if max_peak_number:
