@@ -3,6 +3,8 @@ PyDRT is a lightweight Python implementation of the regularization-regression DR
 The present code is published as part of the following work:
 > Leonhardt, et al. (2024). "Reconstructing the distribution of relaxation times with analytical basis functions" Journal of Power Sources 652, DOI: 10.1016/j.jpowsour.2025.237403
 
+URL: https://doi.org/10.1016/j.jpowsour.2025.237403
+
 DRT can help you to deconvolute your impedance spectra, providing insights into the underlying processes of your electrochemical systems.
 An example is illustrated below.
 ![DRT of a simple impedance model](https://picr.eu/images/2024/10/19/deN30.png)
@@ -15,11 +17,11 @@ To test the present code on synthetic impedance models, also check out
  https://github.com/robertleonhardt/PyImpedanceModel.
 
 ## Usage
-After instally PyDRT using
+After installing PyDRT using
 ```
 python -m pip install PyDRT
 ```
-you can import it and us it as 
+you can import it and use it as 
 ```python
 import numpy as np
 from pydrt import DebyeDRT
@@ -124,7 +126,7 @@ Since the Havriliak-Negami relaxation has two shape parameters (alpha and beta),
 For the other bases, this step is much faster.
 
 Also note that regularization is typically not required when using dispersed bases (all classes except `DebyeDRT`).
-But id is advised to consider validating this information for a specific use case.
+But it is advised to consider validating this information for a specific use case.
 
 ## Sources and acknowlegdements
 > Wan, T. H., et al. (2015). "Influence of the Discretization Methods on the Distribution of Relaxation Times Deconvolution: Implementing Radial Basis Functions with DRTtools." Electrochimica Acta 184: 483-499.

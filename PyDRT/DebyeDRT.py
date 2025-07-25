@@ -15,4 +15,4 @@ class DebyeDRT(DRT):
         return np.identity(len(self.tau_s))
     
     def get_separated_peak_list(self) -> None:
-        raise NotImplementedError('Separation of peaks is not implemented in DebyeDRT. Please one one of the other bases.')
+        raise NotImplementedError('Separation of peaks is not implemented in DebyeDRT. Please use one of the other bases.')
