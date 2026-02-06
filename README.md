@@ -1,7 +1,7 @@
 # PyDRT
 PyDRT is a lightweight Python implementation of the regularization-regression DRT with basis functions.
 The present code is published as part of the following work:
-> Leonhardt, et al. (2024). "Reconstructing the distribution of relaxation times with analytical basis functions" Journal of Power Sources 652, DOI: 10.1016/j.jpowsour.2025.237403
+> Leonhardt, et al. (2025). "Reconstructing the distribution of relaxation times with analytical basis functions" Journal of Power Sources 652, DOI: 10.1016/j.jpowsour.2025.237403
 
 URL: https://doi.org/10.1016/j.jpowsour.2025.237403
 
