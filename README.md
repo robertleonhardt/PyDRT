@@ -1,5 +1,4 @@
 # PyDRT
-URL: https://github.com/robertleonhardt/PyDRT
 PyDRT is a lightweight Python implementation of the regularization-regression DRT with basis functions.
 The present code is published as part of the following work:
 > Leonhardt, et al. (2025). "Reconstructing the distribution of relaxation times with analytical basis functions" Journal of Power Sources 652, DOI: 10.1016/j.jpowsour.2025.237403
@@ -134,3 +133,6 @@ But it is advised to consider validating this information for a specific use cas
 
 and, as the main source for the implementation of the Cole-Cole and Havriliak-Negami bases, 
 > T. Tichter. https://github.com/Polarographica/Polarographica_program
+
+
+Current repo URL: https://github.com/robertleonhardt/PyDRT
